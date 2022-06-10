@@ -22,7 +22,17 @@ router.post("/add", async (req, res) => {
     .save()
     .then((data) => res.json(data))
     .catch((err) =>
-      res.status(500).json({ error: "Error when add Type: " + err })
+      res
+        .status(500)
+        .json({
+          error:
+            "Error when add Type: " +
+            " - " +
+            req.body.id +
+            req.body.name +
+            "-" +
+            err,
+        })
     );
 });
 
