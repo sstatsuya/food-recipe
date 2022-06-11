@@ -12,7 +12,6 @@ router.get("/all", (req, res) => {
 });
 
 router.post("/add", async (req, res) => {
-  console.log(req.body);
   const data = {
     _id: req.body.id,
     name: req.body.name,
@@ -41,7 +40,7 @@ router.delete("/delete/:id", async (req, res) => {
   Type.deleteOne({ _id: req.params.id })
     .then((data) => res.json(data))
     .catch((err) =>
-      res.status(500).json({ error: "Error when patch Type " + err })
+      res.status(500).json({ error: "Error when delete Type " + err })
     );
 });
 
