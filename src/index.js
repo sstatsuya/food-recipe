@@ -24,13 +24,13 @@ async function startApolloServer(typeDefs, resolvers) {
     app,
     path: "/",
   });
-  await new Promise((resolve) => app.listen({ port: 4000 }, resolve));
-  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
+  await new Promise((resolve) => app.listen({ port: 3000 }, resolve));
+  console.log(`🚀 Server ready at http://localhost:3000${server.graphqlPath}`);
 }
 startApolloServer(typeDefs, resolvers);
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  // Cho app lắng nghe địa chỉ localhost (127.0.0.1) trên port 3000
-  console.log(`Example app listening on http://localhost:${PORT}`);
-});
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+//   // Cho app lắng nghe địa chỉ localhost (127.0.0.1) trên port 3000
+//   console.log(`Example app listening on http://localhost:${PORT}`);
+// });
 
