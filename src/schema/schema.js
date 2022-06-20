@@ -4,6 +4,7 @@ const typeDefs = gql`
     type Type{
         _id: ID
         name: String
+        recipes: [Recipe]
     }
 
     type Ingredient{
@@ -19,6 +20,7 @@ const typeDefs = gql`
         tutorial: String
         ingredients: [Ingredient]
         types: [String]
+        typeList: [Type]
         image: String
     }
 
