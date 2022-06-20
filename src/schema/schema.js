@@ -38,6 +38,7 @@ const typeDefs = gql`
         addType(_id: ID!, name: String): Type
         editType(_id: ID!, name: String): Type
         deleteType(_id: ID!): Type
+    
     }
 
 `
