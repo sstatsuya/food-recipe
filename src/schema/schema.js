@@ -24,7 +24,7 @@ const typeDefs = gql`
     time: Int
     number: Int
     level: String
-    tutorial: String
+    tutorial: [String]
     ingredients: [Ingredient]
     types: [String]
     typeList: [Type]
@@ -54,7 +54,7 @@ const typeDefs = gql`
       time: Int
       number: Int
       level: String
-      tutorial: String
+      tutorial: [String]
       ingredients: [IngredientInput]
       types: [String]
       image: String
@@ -67,7 +67,7 @@ const typeDefs = gql`
       time: Int
       number: Int
       level: String
-      tutorial: String
+      tutorial: [String]
       ingredients: [IngredientInput]
       types: [String]
       image: String

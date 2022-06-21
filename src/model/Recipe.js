@@ -7,7 +7,7 @@ const Recipe = new Schema({
   time: { type: Number },
   number: { type: Number },
   level: { type: String },
-  tutorial: { type: String },
+  tutorial: { type: Array },
   image: { type: String },
   ingredients: { type: Array },
   types: { type: Array },
