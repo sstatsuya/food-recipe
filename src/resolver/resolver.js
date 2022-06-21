@@ -65,6 +65,7 @@ const resolvers = {
     editRecipe: async (parent, args) => {
       const data = {
         name: args.name,
+        intro: args.intro,
         time: args.time,
         number: args.number,
         level: args.level,

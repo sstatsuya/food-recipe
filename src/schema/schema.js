@@ -20,6 +20,7 @@ const typeDefs = gql`
   type Recipe {
     _id: ID
     name: String
+    intro: String
     time: Int
     number: Int
     level: String
@@ -49,6 +50,7 @@ const typeDefs = gql`
     addRecipe(
       _id: ID!
       name: String
+      intro: String
       time: Int
       number: Int
       level: String
@@ -61,6 +63,7 @@ const typeDefs = gql`
     editRecipe(
       _id: ID!
       name: String
+      intro: String
       time: Int
       number: Int
       level: String
