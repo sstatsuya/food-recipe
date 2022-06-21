@@ -34,11 +34,11 @@ const resolvers = {
   },
 
   Recipe: {
-    typeList: async (parent, args) =>{
-      return parent.types.map(async item => {
-        return await Type.findById(item)
-      })
-    }
+    typeList: async (parent, args) => {
+      return parent.types.map(async (item) => {
+        return await Type.findById(item);
+      });
+    },
   },
 
   Mutation: {
@@ -54,6 +54,26 @@ const resolvers = {
     },
     deleteType: async (parent, args) => {
       return await Type.findByIdAndDelete(args._id);
+    },
+    addRecipe: async (parent, args) => {
+      const newRecipe = new Recipe(args);
+      return newRecipe.save();
+    },
+    deleteRecipe: async (parent, args) => {
+      return await Recipe.findByIdAndDelete(args._id);
+    },
+    editRecipe: async (parent, args) => {
+      const data = {
+        name: args.name,
+        time: args.time,
+        number: args.number,
+        level: args.level,
+        tutorial: args.tutorial,
+        ingredients: args.ingredients,
+        types: args.types,
+        image: args.image,
+      };
+      return await Recipe.findByIdAndUpdate(args._id, data, { new: true });
     },
   },
 };
