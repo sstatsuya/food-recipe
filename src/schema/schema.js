@@ -28,7 +28,7 @@ const typeDefs = gql`
     ingredients: [Ingredient]
     types: [String]
     typeList: [Type]
-    image: String
+    image: [String]
   }
 
   type Query {
