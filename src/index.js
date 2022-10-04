@@ -26,9 +26,12 @@ async function startApolloServer(typeDefs, resolvers) {
   });
   const PORT = process.env.PORT || 3000;
   await new Promise((resolve) => app.listen({ port: PORT }, resolve));
-  console.log(`🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`);
+  console.log(
+    `🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`
+  );
 }
 startApolloServer(typeDefs, resolvers);
+
 // const PORT = process.env.PORT || 3000;
 // app.listen(PORT, () => {
 //   // Cho app lắng nghe địa chỉ localhost (127.0.0.1) trên port 3000
