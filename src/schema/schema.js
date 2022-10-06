@@ -57,7 +57,7 @@ const typeDefs = gql`
       tutorial: [String]
       ingredients: [IngredientInput]
       types: [String]
-      image: String
+      image: [String]
     ): Recipe
     deleteRecipe(_id: ID!): Recipe
     editRecipe(
