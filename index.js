@@ -2,17 +2,17 @@ const express = require("express"); // import thư viện express đã cài ở 
 const app = express(); // app ở đây đại diện cho cái dự án nodejs mà mình sẽ làm việc xuyên suốt
 const port = 3000; // muốn run app ở port 3000
 
-const database = require("./config/database");
+const database = require("./src/config/database");
 database.connect();
 
 const BodyParser = require("body-parser");
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
 
-app.use("/", require("./route"));
+app.use("/", require("./src/route"));
 
-const typeDefs = require("./schema/schema");
-const resolvers = require("./resolver/resolver");
+const typeDefs = require("./src/schema/schema");
+const resolvers = require("./src/resolver/resolver");
 const { ApolloServer } = require("apollo-server-express");
 
 async function startApolloServer(typeDefs, resolvers) {
@@ -37,4 +37,3 @@ startApolloServer(typeDefs, resolvers);
 //   // Cho app lắng nghe địa chỉ localhost (127.0.0.1) trên port 3000
 //   console.log(`Example app listening on http://localhost:${PORT}`);
 // });
-
