@@ -26,14 +26,24 @@ async function startApolloServer(typeDefs, resolvers) {
   });
   const PORT = process.env.PORT || 3000;
   await new Promise((resolve) => app.listen({ port: PORT }, resolve));
+  app.get("/hello", (req, res) => {
+    // tạo tuyến đường, khi gõ địa chỉ + '/hello' thì nó sẽ trả về chuỗi 'Hello World!'
+    res.send("Hello World!");
+  });
+
   console.log(
     `🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`
   );
 }
 startApolloServer(typeDefs, resolvers);
 
-// const PORT = process.env.PORT || 3000;
+// const PORT = process.env.PORT || 3001;
 // app.listen(PORT, () => {
 //   // Cho app lắng nghe địa chỉ localhost (127.0.0.1) trên port 3000
 //   console.log(`Example app listening on http://localhost:${PORT}`);
+// });
+
+// app.get("/hello", (req, res) => {
+//   // tạo tuyến đường, khi gõ địa chỉ + '/hello' thì nó sẽ trả về chuỗi 'Hello World!'
+//   res.send("Hello World!");
 // });

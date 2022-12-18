@@ -1,8 +1,26 @@
 const Type = require("../model/Type");
 const Recipe = require("../model/Recipe");
+const User = require("../model/User");
+const { makeid } = require("../common/helper");
 
 const resolvers = {
   Query: {
+    // User
+    login: async (parent, args) => {
+      const newToken = makeid(30);
+      return await User.findOneAndUpdate(
+        {
+          username: args.username,
+          password: args.password,
+        },
+        { token: newToken },
+        { new: true }
+      );
+    },
+    getUserInfo: async (parent, args) => {
+      return await User.findOne({ token: args.token });
+    },
+
     // Type
     types: async (parent, args) => {
       return await Type.find();
