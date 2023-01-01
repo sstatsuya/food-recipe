@@ -7,5 +7,6 @@ const User = new Schema({
   password: { type: String, select: false },
   token: { type: String },
   level: { type: Number },
+  avatar: { type: String },
 });
 module.exports = mongoose.model("Users", User);

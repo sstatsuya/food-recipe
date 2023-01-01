@@ -8,6 +8,7 @@ const typeDefs = gql`
     password: String
     token: String
     level: Int
+    avatar: String
   }
   type Type {
     _id: ID
