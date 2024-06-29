@@ -12,9 +12,8 @@ const { ApolloServer } = require("apollo-server-express");
 async function startServer(typeDefs, resolvers) {
   //Start REST
   const app = express();
+  app.use(express.json());
   app.use("/", require("./route"));
-  app.use(BodyParser.json());
-  app.use(BodyParser.urlencoded({ extended: true }));
   
   //Start GRAPHQL
   const server = new ApolloServer({ typeDefs, resolvers });
@@ -24,7 +23,7 @@ async function startServer(typeDefs, resolvers) {
     path: "/graphql",
   });
 
-  const PORT = process.env.PORT || 3000;
+  const PORT = process.env.PORT || 8082;
   await new Promise((resolve) => app.listen({ port: PORT }, resolve));
   console.log(
     `🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`
